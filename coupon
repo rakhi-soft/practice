@@ -1,0 +1,11 @@
+let amount=1000;
+
+let user_input = "SAVE10";
+let coupon_code = "SAVE10";
+if(user_input == coupon_code) {
+    let totalAmount = 1000*(90/100);
+    console.log(`pay:${totalAmount}`);
+}
+else{
+    console.log(`incorrect coupon code ! pay:${amount}`);
+}
