@@ -1,24 +1,30 @@
+const year = Number(prompt("enter year to check for leap year: "));
 let month = prompt("enter month name: ");
-let principal = prompt("enter amount: ");
-let rate = prompt("enter rate: ");
-let time_in_days = prompt("enter time in days: ");
-
-if(month=="Jan" || month=="March" || month=="May" || month=="July" || month=="Aug" || month=="Oct" || month=="Dec" ){
-    let time_in_month = time_in_days/31;
-    let SI = (principal*rate*time_in_month)/100;
-    console.log(`simple interest is:${SI}`);
-    
-}
-else if(month=="April" || month=="June" || month=="Sep" || month=="Nov" ){
+let principal = Number(prompt("enter amount: "));
+let rate = Number(prompt("enter rate: "));
+let time_in_days = Number(prompt("enter time in days: "));
+if(month=="April" || month=="June" || month=="Sep" || month=="Nov" ){
     let time_in_month = time_in_days/30;
     let SI = (principal*rate*time_in_month)/100;
-    console.log(`simple interest is:${SI}`);
+    console.log(`simple interest is:${SI} and month having 30 days`);
 }
-else if(month =="Feb"){
-    let time_in_month = time_in_days/28;
-    let SI = (principal*rate*time_in_month)/100;
-    console.log(`simple interest is:${SI}`);
+else if(month=="Jan" || month=="March" || month=="May" || month=="July" || month=="Aug" || month=="Oct" || month=="Dec" ){
+        let time_in_month = time_in_days/31;
+        let SI = (principal*rate*time_in_month)/100;
+        console.log(`simple interest is:${SI} and month having 31 days`);
 }
+else if(month=="Feb"){
+    if((year%4==0) && (year%100!=0) || (year%400==0)){
+        let time_in_month = time_in_days/29;
+        let SI = (principal*rate*time_in_month)/100;
+        console.log(`simple interest is:${SI} and month having 29 days and its a leap year`);
+    }
+    else{
+        let time_in_month = time_in_days/28;
+        let SI = (principal*rate*time_in_month)/100;
+        console.log(`simple interest is:${SI} and month having 28 days`);}
+    }
+
 else{
-    console.log("you entered wrong Month name");
+    console.log("you enteered wrong month name");
 }
